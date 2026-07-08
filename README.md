@@ -28,11 +28,11 @@ Full framing — stakeholders, success metrics, constraints, scope — in
 
 | Phase | Deliverable | Status |
 |---|---|---|
-| **1. Client brief + scaffold** | Problem framing, repo, reproducible tooling | ✅ Done |
-| **2. Data pipeline** | GBFS collector + cleaning module + CLI + tests | ⏳ Next |
-| **3. Analysis & forecasting** | EDA of failure patterns; interpretable near-term risk model with leakage-free time-series validation | ⏳ |
-| **4. Decision-support dashboard** | Streamlit app: at-risk map, ranked "rebalance next" list, plain-language reasons | ⏳ |
-| **5. Executive write-up** | One-page client summary: findings, recommendation, impact, limitations | ⏳ |
+| **1. Client brief + scaffold** | Problem framing, repo, reproducible tooling | Done |
+| **2. Data pipeline** | GBFS collector + cleaning module + CLI + tests | Next |
+| **3. Analysis & forecasting** | EDA of failure patterns; interpretable near-term risk model with leakage-free time-series validation | |
+| **4. Decision-support dashboard** | Streamlit app: at-risk map, ranked "rebalance next" list, plain-language reasons |  |
+| **5. Executive write-up** | One-page client summary: findings, recommendation, impact, limitations |  |
 
 **Success is measured in the operator's terms** — *failure-minutes* (stockout- and
 dockout-minutes per station per day) and *Precision@N* on the ranked list the manager acts
