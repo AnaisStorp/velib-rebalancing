@@ -1,0 +1,51 @@
+[project]
+name = "velib-rebalancing"
+version = "0.1.0"
+description = "Forward-deployed case study: predicting and prioritizing Vélib' station stockouts/dockouts for the operations team."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Anaïs Storp" }]
+license = { text = "MIT" }
+
+# Deliberately minimal. Core = collect + clean + model.
+dependencies = [
+    "pandas>=2.0",
+    "scikit-learn>=1.3",
+    "requests>=2.31",
+    "pyarrow>=14.0",   # parquet for the snapshot history
+]
+
+[project.optional-dependencies]
+# Phase 4 dashboard — kept optional so the core pipeline stays lightweight.
+dashboard = [
+    "streamlit>=1.30",
+    "pydeck>=0.8",
+]
+# Dev / notebooks / tests.
+dev = [
+    "pytest>=8.0",
+    "jupyterlab>=4.0",
+    "matplotlib>=3.7",
+    "seaborn>=0.13",
+    "ruff>=0.5",
+]
+
+[project.scripts]
+# Phase 2 CLI entry points (implemented next phase).
+velib-collect = "velib_rebalancing.collect:main"
+velib-build = "velib_rebalancing.pipeline:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/velib_rebalancing"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
