@@ -7,8 +7,8 @@ decision recorded in the [client brief](client_brief.md) §5.
 
 | Source | What it gives | History? | Verdict |
 |---|---|---|---|
-| **Vélib' Métropole GBFS** (`velib-metropole-opendata.smovengo.cloud`) | Live `station_status` + `station_information`, GBFS 1.0 | **No** — real-time snapshot only, `ttl` 3600s | **Primary source.** Authoritative, license-clean, 1,517 stations. |
-| **opendata.paris.fr** `velib-disponibilite-en-temps-reel` | Same data, re-published, updated ~every minute | **No** — Paris explicitly provides no historical access | Redundant with GBFS. Not used. |
+| **Vélib' Métropole GBFS** (`velib-metropole-opendata.smovengo.cloud`) | Live `station_status` + `station_information`, GBFS 1.0 | **No**, real-time snapshot only, `ttl` 3600s | **Primary source.** Authoritative, license-clean, 1,517 stations. |
+| **opendata.paris.fr** `velib-disponibilite-en-temps-reel` | Same data, re-published, updated ~every minute | **No**, Paris explicitly provides no historical access | Redundant with GBFS. Not used. |
 | **Community archives** (e.g. `lovasoa/historique-velib-opendata`) | Crowd-collected snapshots since Dec 2019 | Yes (third-party) | Optional backfill for demo depth; not a dependency. |
 
 **Decision:** live source = **Vélib' Métropole GBFS**. Because no official history exists,
@@ -18,7 +18,7 @@ we **build our own** by snapshotting the feed on a schedule (Phase 2 collector).
 
 Discovery doc lists 4 feeds; we use two, joinable on `station_id` (and `stationCode`):
 
-**`station_status.json`** — one object per station, 1,517 stations:
+**`station_status.json`**, one object per station, 1,517 stations:
 ```json
 {
   "station_id": 213688169,
