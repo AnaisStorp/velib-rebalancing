@@ -49,8 +49,8 @@ Discovery doc lists 4 feeds; we use two, joinable on `station_id` (and `stationC
   `last_reported`. Snapshot cadence should record wall-clock capture time *and* keep the
   feed's own timestamps, so we can detect stale stations.
 - **Failure labels** derive directly from status:
-  - stockout ⇔ `num_bikes_available == 0` (and `is_renting == 1`, i.e. station is live)
-  - dockout ⇔ `num_docks_available == 0` (and `is_returning == 1`)
+  - stockout <-> `num_bikes_available == 0` (and `is_renting == 1`, i.e. station is live)
+  - dockout <-> `num_docks_available == 0` (and `is_returning == 1`)
 - **Out-of-service stations** (`is_installed == 0`) must be excluded from failure metrics —
   a decommissioned station isn't a service failure.
 - **Capacity sanity:** `num_bikes_available + num_docks_available` ≈ `capacity`, but not
